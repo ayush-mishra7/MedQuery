@@ -2,11 +2,11 @@ from fastapi import FastAPI
 from groq import Groq
 from .models import MedicalRequest
 from .utils import clean_text
-
+import os
 app = FastAPI(title="MedQuery API")
 
 # Insert your API key here
-client = Groq(api_key="API_KEY_HERE")
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # Best available model from your list
 MODEL_NAME = "llama-3.3-70b-versatile"
